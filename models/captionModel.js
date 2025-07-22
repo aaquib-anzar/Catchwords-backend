@@ -6,7 +6,7 @@ const captionSchema = new mongoose.Schema({
         unique:true
     },
     captions:{
-        type:[Array],
+        type:Array,
         default:[]
     }
 },{timestamps:true})
