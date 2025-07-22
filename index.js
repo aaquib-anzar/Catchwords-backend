@@ -4,7 +4,6 @@ import cors from "cors";
 import { db_connect } from "./db_connect.js";
 import Caption from "./models/captionModel.js";
 import dotenv from "dotenv";
-import dotenv from "dotenv";
 dotenv.config();
 const app = express();
 
