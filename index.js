@@ -4,6 +4,7 @@ import cors from "cors";
 import { db_connect } from "./db_connect.js";
 import Caption from "./models/captionModel.js";
 import dotenv from "dotenv";
+import dotenv from "dotenv";
 dotenv.config();
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(
     credentials: true,
   })
 );
+app.use(express.json());
 app.use(express.json());
 const API_KEY = process.env.GEMINI_API_KEY;
 const ai = new GoogleGenAI(API_KEY);
@@ -46,7 +48,7 @@ app.post("/savecaption", async (req, res) => {
       existingUser.captions.push(caption);
       await existingUser.save();
     } else {
-      await Caption.create({ user: email, captions: caption});
+      await Caption.create({ user: email, captions: caption });
     }
     return res.status(200).json({ message: "Caption saved successfully." });
   } catch (error) {
