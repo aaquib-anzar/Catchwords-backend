@@ -35,9 +35,7 @@ app.post("/generate", async (req, res) => {
   return res.status(200).json({ caption });
 });
 app.post("/savecaption", async (req, res) => {
-  console.log(req.body);
   const { email, caption } = req.body;
-  console.log("Type of",typeof(caption))
   if (!email || email === "") {
     return;
   }
@@ -57,7 +55,6 @@ app.post("/savecaption", async (req, res) => {
 });
 app.get("/getCaption", async (req, res) => {
   const { email } = req.query;
-  console.log(email)
   try {
     const history = await Caption.findOne({ user: email });
     if (!history || !history.captions || history.captions.length === 0) {
