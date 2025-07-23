@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 app.use(
   cors({
-    origin: "http://localhost:5173", // your React app
+    origin:  process.env. PROD_URL || "http://localhost:5173", // your React app
     methods: ["GET", "POST"],
     credentials: true,
   })
