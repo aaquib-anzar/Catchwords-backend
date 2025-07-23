@@ -10,12 +10,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 app.use(
   cors({
-    origin:  process.env. PROD_URL || "http://localhost:5173", // your React app
+    origin:  process.env.PROD_URL || "http://localhost:5173", // your React app
     methods: ["GET", "POST"],
     credentials: true,
   })
 );
-app.use(express.json());
 app.use(express.json());
 const API_KEY = process.env.GEMINI_API_KEY;
 const ai = new GoogleGenAI(API_KEY);
