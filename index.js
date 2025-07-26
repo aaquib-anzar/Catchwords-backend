@@ -65,7 +65,7 @@ app.get("/getCaption", async (req, res) => {
     console.error("Failed to retrieve the caption", error);
   }
 });
-app.delete("/deletecaption", async(req, res) => {
+app.post("/deletecaption", async(req, res) => {
   const {email, caption} = req.body 
   try {
     const response = await Caption.findOneAndUpdate({user:email},{$pull:{captions:caption}},{new:true})
